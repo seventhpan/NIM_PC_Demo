@@ -80,8 +80,8 @@ void LoginCallback::DoLogin(std::string user, std::string pass)
 	LoginManager::GetInstance()->SetLoginStatus(LoginStatus_LOGIN);
 
 	LoginManager::GetInstance()->SetAccount(user);
-	std::string pass_md5 = QString::GetMd5(pass); //密码MD5加密（用户自己的应用请去掉加密）
-	LoginManager::GetInstance()->SetPassword(pass_md5);
+	//std::string pass_md5 = QString::GetMd5(pass); //密码MD5加密（用户自己的应用请去掉加密）
+	LoginManager::GetInstance()->SetPassword(pass);
 
 	_InitUserFolder();
 	_InitLog();

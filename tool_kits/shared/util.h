@@ -2,8 +2,8 @@
 #include <string>
 #include <map>
 
-#define DEMO_GLOBAL_APP_KEY			"45c6af3c98409b18a84451215d0bdd6e"
-#define DEMO_GLOBAL_TEST_APP_KEY	"fe416640c8e8a72734219e1847ad2547"
+#define DEMO_GLOBAL_APP_KEY			"e84f26440a7069797c6341088762755c"
+#define DEMO_GLOBAL_TEST_APP_KEY	"255ab2c6ba1a"
 
 class QString
 {

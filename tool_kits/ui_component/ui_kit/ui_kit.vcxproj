@@ -291,6 +291,7 @@
     <ClInclude Include="module\login\login_manager.h" />
     <ClInclude Include="module\rts\rts_manager.h" />
     <ClInclude Include="module\service\http_service.h" />
+    <ClInclude Include="module\service\md5.h" />
     <ClInclude Include="module\service\mute_black_service.h" />
     <ClInclude Include="module\service\notify_center.h" />
     <ClInclude Include="module\service\photo_service.h" />
@@ -431,6 +432,7 @@
     <ClCompile Include="module\login\login_manager.cpp" />
     <ClCompile Include="module\rts\rts_manager.cpp" />
     <ClCompile Include="module\service\http_service.cpp" />
+    <ClCompile Include="module\service\md5.cpp" />
     <ClCompile Include="module\service\mute_black_service.cpp" />
     <ClCompile Include="module\service\notify_center.cpp" />
     <ClCompile Include="module\service\photo_service.cpp" />

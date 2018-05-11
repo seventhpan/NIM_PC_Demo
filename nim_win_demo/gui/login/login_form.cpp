@@ -2,6 +2,7 @@
 #include "gui/main/main_form.h"
 #include "module/db/public_db.h"
 #include "module/login/login_manager.h"
+#include "module/service/user_service.h"
 
 using namespace ui;
 
@@ -127,8 +128,31 @@ void LoginForm::StartLogin( std::string username, std::string password )
 
 	btn_login_->SetVisible(false);
 	btn_cancel_->SetVisible(true);
+	nim_comp::UserService::GetInstance()->LoginAppServer(username, password, ToWeakCallback([this](int res, const std::string& uname, const std::string& token, const std::string& err_msg) {
+		if (res == 0)
+		{
+			nim_ui::LoginManager::GetInstance()->DoLogin(uname, token);
+		}
+		else
+		{
+			ShowLoginTip(nbase::UTF8ToUTF16(err_msg));
+			/*MutiLanSupport* mls = MutiLanSupport::GetInstance();
+			if (res == 601) {
+			ShowLoginTip(mls->GetStringViaID(L"STRID_LOGIN_FORM_TIP_ACCOUNT_RESTRICT"));
+			}
+			else if (res == 602) {
+			ShowLoginTip(mls->GetStringViaID(L"STRID_LOGIN_FORM_TIP_ACCOUNT_EXIST"));
+			}
+			else if (res == 603) {
+			ShowLoginTip(mls->GetStringViaID(L"STRID_LOGIN_FORM_TIP_NICKNAME_TOO_LONG"));
+			}
+			else {
+			ShowLoginTip(nbase::UTF8ToUTF16(err_msg));
+			}*/
+			//btn_login->SetEnabled(true);
+		}
+	}));
 
-	nim_ui::LoginManager::GetInstance()->DoLogin(username, password);
 }
 
 void LoginForm::RegLoginManagerCallback()

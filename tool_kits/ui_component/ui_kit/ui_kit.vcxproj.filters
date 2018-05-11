@@ -543,6 +543,9 @@
     <ClInclude Include="gui\video\multi_video_form.h">
       <Filter>gui\video</Filter>
     </ClInclude>
+    <ClInclude Include="module\service\md5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -952,6 +955,9 @@
     </ClCompile>
     <ClCompile Include="gui\session\unread_form.cpp">
       <Filter>gui\session</Filter>
+    </ClCompile>
+    <ClCompile Include="module\service\md5.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
