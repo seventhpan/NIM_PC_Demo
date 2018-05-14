@@ -268,5 +268,5 @@ bool LoginForm::OnClicked( ui::EventArgs* msg )
 
 void LoginForm::SetAnonymousChatroomVisible(bool visible)
 {
-	FindControl(L"anonymous_chatroom")->SetVisible(visible);
+	//FindControl(L"anonymous_chatroom")->SetVisible(visible);    //add 0512 Со
 }

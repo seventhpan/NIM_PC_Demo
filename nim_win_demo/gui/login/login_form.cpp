@@ -126,8 +126,10 @@ void LoginForm::StartLogin( std::string username, std::string password )
 	login_error_tip_->SetVisible(false);
 	login_ing_tip_->SetVisible(true);
 
-	btn_login_->SetVisible(false);
-	btn_cancel_->SetVisible(true);
+	//btn_login_->SetVisible(false);
+	//btn_cancel_->SetVisible(true);
+	btn_login_->SetVisible(true);       //add 0512
+	btn_cancel_->SetVisible(false);
 	nim_comp::UserService::GetInstance()->LoginAppServer(username, password, ToWeakCallback([this](int res, const std::string& uname, const std::string& token, const std::string& err_msg) {
 		if (res == 0)
 		{
@@ -198,8 +200,6 @@ void LoginForm::OnLoginError( int error )
 		MutiLanSupport* mls = MutiLanSupport::GetInstance();
 		if (error == nim::kNIMResUidPassError)
 		{
- 			usericon_->SetEnabled(false);
- 			passwordicon_->SetEnabled(false);
 			ShowLoginTip(mls->GetStringViaID(L"STRID_LOGIN_FORM_TIP_PASSWORD_ERROR"));
 		}
 		else if (error == nim::kNIMResConnectionError)
@@ -228,18 +228,24 @@ void LoginForm::OnCancelLogin()
 
 	login_ing_tip_->SetVisible(false);
 	login_error_tip_->SetVisible(false);
+	//login_ing_tip_->SetVisible(true);
+	//login_error_tip_->SetVisible(true);          //add 0512
 
 	btn_login_->SetVisible(true);
 	btn_cancel_->SetVisible(false);
-	btn_cancel_->SetEnabled(true);
+	//btn_cancel_->SetVisible(true);               //add 0512
+	btn_cancel_->SetEnabled(false);                //修改参数 0512
 }
 
 void LoginForm::ShowLoginTip(std::wstring tip_text)
-{
+{   //add 0512, 登录失败，这个会被调用？？？
 	login_ing_tip_->SetVisible(false);
 
 	login_error_tip_->SetText(tip_text);
 	login_error_tip_->SetVisible(true);
+
+	user_name_edit_->SetEnabled(true);     //add 0512
+	password_edit_->SetEnabled(true);      //add 0512
 }
 
 void LoginForm::InitLoginData()

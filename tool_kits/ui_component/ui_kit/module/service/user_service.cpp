@@ -1,6 +1,6 @@
 ﻿#include <ctype.h>
 #include "user_service.h"
-#include "md5.h"
+#include "MD5.h"
 #include "module/local/local_helper.h"
 #include "module/login/login_manager.h"
 #include "module/subscribe_event/subscribe_event_manager.h"
